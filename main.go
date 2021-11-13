@@ -11,7 +11,7 @@ func handleList(c *gin.Context) {
 	var loadedEmails, _ = GetAll()
 	var result string
 
-	if c.Query("password") != "abcd9090" {
+	if c.Query("password") != goDotEnvVariable("LIST_PASSWORD") {
 		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("Password incorrect!"))
 		return
 	}
@@ -38,5 +38,5 @@ func main() {
 	r := gin.Default()
 	r.GET("/list/", handleList)
 	r.POST("/subscribe/", handleSubscribe)
-	r.Run() // listen and serve on 0.0.0.0:8080
+	r.Run(goDotEnvVariable("PORT")) // listen and serve on 0.0.0.0:4001
 }
