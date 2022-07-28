@@ -1,6 +1,16 @@
 # go-subscription
 A simple restful api with mongo db connection. It can store and list all the emails for subscription.
 
+# Run in Windows
+```
+go run .
+```
+
+# Build in Windows
+```
+go build -o go-subscription
+```
+
 # Run in docker
 ```
 docker build -t go-subscription .
